@@ -1,0 +1,191 @@
+/*
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+*/
+
+:root {
+    --accent: #7a9cc6;        /* bleu pâle */
+    --accent-fonce: #5c80a8;  /* bleu plus soutenu pour hover */
+    --fond: #f3efe7;          /* beige très clair */
+    --carte: #ffffff;         /* blanc cassé pour les cartes */
+    --bordure: #e0dbcf;       /* beige-gris pour les bordures */
+    --texte: #3d3d3d;         /* gris foncé, pas noir pur */
+    --texte-secondaire: #7a7a7a; /* gris moyen */
+    --erreur: #c65c5c;
+    --rayon: 14px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(180deg, #f7f4ee 0%, var(--fond) 100%);
+    color: var(--texte);
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    line-height: 1.5;
+}
+
+header, footer {
+    background-color: #e8e2d5;
+    padding: 1.5rem 1rem;
+    text-align: center;
+    color: var(--accent-fonce);
+    border-bottom: 1px solid var(--bordure);
+}
+
+footer {
+    border-top: 1px solid var(--bordure);
+    border-bottom: none;
+    color: var(--texte-secondaire);
+    font-size: 0.9rem;
+}
+
+h1, h2 {
+    color: var(--accent-fonce);
+    text-align: center;
+    margin-top: 1rem;
+    letter-spacing: 0.5px;
+}
+
+h1 {
+    font-weight: 700;
+}
+
+form {
+    max-width: 600px;
+    margin: 2.5rem auto;
+    background-color: var(--carte);
+    padding: 2.5rem;
+    border-radius: var(--rayon);
+    border: 1px solid var(--bordure);
+    box-shadow: 0 8px 24px rgba(122, 156, 198, 0.12);
+}
+
+label {
+    display: block;
+    margin: 1.2rem 0 0.4rem;
+    color: var(--texte-secondaire);
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--bordure);
+    border-radius: 8px;
+    background-color: #faf8f4;
+    color: var(--texte);
+    font-size: 1rem;
+    font-family: inherit;
+    transition: border-color 0.25s ease, background-color 0.25s ease;
+}
+
+input:hover, select:hover, textarea:hover {
+    background-color: #f2efe8;
+}
+
+input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+    background-color: #ffffff;
+    box-shadow: 0 0 0 3px rgba(122, 156, 198, 0.18);
+}
+
+button {
+    background: linear-gradient(135deg, var(--accent), var(--accent-fonce));
+    color: #ffffff;
+    padding: 0.8rem 1.8rem;
+    font-size: 1rem;
+    font-weight: 700;
+    border: none;
+    border-radius: 8px;
+    margin-top: 1.5rem;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    width: 100%;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(122, 156, 198, 0.35);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+a {
+    color: var(--accent-fonce);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--accent);
+    text-decoration: underline;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 2rem auto;
+    max-width: 600px;
+}
+
+li {
+    background-color: var(--carte);
+    padding: 1.2rem 1.5rem;
+    margin-bottom: 1rem;
+    border-radius: 10px;
+    border-left: 4px solid var(--accent);
+    border-top: 1px solid var(--bordure);
+    border-right: 1px solid var(--bordure);
+    border-bottom: 1px solid var(--bordure);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+li:hover {
+    transform: translateX(4px);
+    box-shadow: 0 4px 14px rgba(122, 156, 198, 0.15);
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    margin: 2rem auto;
+    border-radius: var(--rayon);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+.reduced-image {
+    width: 30%;
+    height: auto;
+}
+
+
+.erreur {
+    color: var(--erreur);
+    font-weight: 600;
+    font-size: 0.85rem;
+    display: block;
+    margin-top: 0.3rem;
+}
+
+p {
+    text-align: center;
+    font-size: 1.1rem;
+    color: var(--texte-secondaire);
+}
+
+.container {
+    width: 85%;
+    max-width: 1000px;
+    margin: 2rem auto;
+}
