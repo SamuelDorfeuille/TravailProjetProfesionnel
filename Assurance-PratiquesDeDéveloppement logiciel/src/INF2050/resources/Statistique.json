@@ -1,0 +1,26 @@
+{
+    "Nombre de réclamation valide traitées": "0",
+    "Nombre de réclamation rejetées": "0",
+    "Nombre de soins déclarés": [
+        {
+            "soin": 175,
+            "Nombre déclaré": "0"
+        },
+        {
+            "soin": 100,
+            "Nombre déclaré": "0"
+        },
+        {
+            "soin": 200,
+            "Nombre déclaré": "0"
+        },
+        {
+            "soin": 500,
+            "Nombre déclaré": "0"
+        },
+        {
+            "soin": 600,
+            "Nombre déclaré": "0"
+        }
+    ]
+}

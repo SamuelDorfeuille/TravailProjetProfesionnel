@@ -1,0 +1,45 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+Refunds,equipe18test,ContratDTest,0,221,0,0,0,65,0,17,0,17
+Refunds,equipe18test,TraitementJsonTest,113,0,0,0,32,0,9,0,9,0
+Refunds,equipe18test,MonnaieTest,98,0,0,0,26,0,9,0,9,0
+Refunds,equipe18test,ContratBTest,0,140,0,0,0,41,0,11,0,11
+Refunds,equipe18test,MainTest,3,35,0,0,0,8,1,4,1,4
+<<<<<<< HEAD
+Refunds,equipe18test,CommandeStatistiqueTest,3,116,0,2,2,30,0,4,0,3
+Refunds,equipe18test,VerificationsTest,16,66,0,0,0,24,5,15,5,15
+=======
+Refunds,equipe18test,CommandeStatistiqueTest,3,165,1,5,2,48,1,8,0,6
+Refunds,equipe18test,VerificationsTest,20,64,0,0,0,23,6,15,6,15
+>>>>>>> AjustementDétail
+Refunds,equipe18test,ContratCTest,0,71,0,0,0,21,0,5,0,5
+Refunds,equipe18test,ContratETest,0,141,0,0,0,41,0,11,0,11
+Refunds,equipe18test,CalculsTest,0,78,0,0,0,21,0,6,0,6
+Refunds,equipe18test,ContratATest,0,73,0,0,0,21,0,6,0,6
+<<<<<<< HEAD
+Refunds,equipe18test,GestionnaireRemboursementsTest,0,154,0,2,0,33,0,4,0,3
+Refunds,equipe18,ContratD,23,151,8,26,7,29,9,17,1,8
+Refunds,equipe18,ContratE,9,103,4,18,3,20,5,11,1,4
+Refunds,equipe18,ContratB,13,119,7,21,4,22,8,12,1,5
+Refunds,equipe18,GestionnaireRemboursements,3,271,1,7,1,40,2,8,1,5
+Refunds,equipe18,ContratC,3,38,0,6,1,13,1,5,1,2
+Refunds,equipe18,CommandeStatistique,64,50,0,2,23,10,6,4,6,3
+Refunds,equipe18,ContratA,3,75,5,17,1,13,6,8,1,2
+Refunds,equipe18,Verifications,3,106,0,16,1,13,1,13,1,5
+Refunds,equipe18,Calculs,3,60,1,9,1,16,2,10,1,6
+Refunds,equipe18,Main,19,44,5,3,7,12,4,2,1,1
+Refunds,equipe18,TraitementJson,22,85,0,2,7,24,1,9,1,8
+=======
+Refunds,equipe18test,GestionnaireRemboursementsTest,0,163,0,2,0,35,0,4,0,3
+Refunds,equipe18,ContratD,23,151,8,26,7,29,9,17,1,8
+Refunds,equipe18,ContratE,9,103,4,18,3,20,5,11,1,4
+Refunds,equipe18,ContratB,13,119,7,21,4,22,8,12,1,5
+Refunds,equipe18,GestionnaireRemboursements,3,289,1,7,1,46,2,8,1,5
+Refunds,equipe18,ContratC,3,38,0,6,1,13,1,5,1,2
+Refunds,equipe18,CommandeStatistique,63,140,2,6,20,40,5,10,3,8
+Refunds,equipe18,ContratA,3,75,5,17,1,13,6,8,1,2
+Refunds,equipe18,Verifications,11,133,1,15,4,27,2,13,1,6
+Refunds,equipe18,Calculs,3,60,1,9,1,16,2,10,1,6
+Refunds,equipe18,Main,22,45,5,3,7,13,4,2,1,1
+Refunds,equipe18,TraitementJson,30,85,2,2,10,24,3,9,2,8
+>>>>>>> AjustementDétail
+Refunds,equipe18,Monnaie,46,42,3,3,8,12,8,4,5,4
