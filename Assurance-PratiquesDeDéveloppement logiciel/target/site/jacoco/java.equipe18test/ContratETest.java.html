@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ContratETest.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Refunds</a> &gt; <a href="index.source.html" class="el_package">java.equipe18test</a> &gt; <span class="el_source">ContratETest.java</span></div><h1>ContratETest.java</h1><pre class="source lang-java linenums"><span class="nc" id="L1">package equipe18test;</span>
+
+import org.junit.jupiter.api.Test;
+import equipe18.ContratE;
+import equipe18.Monnaie;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+public class ContratETest {
+
+    @Test
+    public void testRemboursement25Max15() {
+<span class="nc" id="L13">        Monnaie montant = new Monnaie(100, 0);</span>
+        ContratE.remboursement25Max15(montant);
+        assertEquals(1500, montant.getTotalCents());
+    }
+
+    @Test
+    public void testRemboursement30Max20() {
+<span class="nc" id="L20">        Monnaie montant = new Monnaie(100, 0);</span>
+        ContratE.remboursement30Max20(montant);
+        assertEquals(2000, montant.getTotalCents());
+    }
+
+    @Test
+    public void testCalculerRemboursementECategory0() {
+<span class="nc" id="L27">        Monnaie montant = new Monnaie(100, 0);</span>
+        ContratE.calculerRemboursementE(montant, 0);
+        assertEquals(1500, montant.getTotalCents());
+    }
+
+    @Test
+    public void testCalculerRemboursementECategory100() {
+<span class="nc" id="L34">        Monnaie montant = new Monnaie(100, 0);</span>
+        ContratE.calculerRemboursementE(montant, 100);
+        assertEquals(2500, montant.getTotalCents());
+    }
+
+    @Test
+    public void testCalculerRemboursementECategory200() {
+<span class="nc" id="L41">        Monnaie montant = new Monnaie(100, 0);</span>
+        ContratE.calculerRemboursementE(montant, 200);
+        assertEquals(1200, montant.getTotalCents());
+    }
+
+    @Test
+    public void testCalculerRemboursementECategory300() {
+<span class="nc" id="L48">        Monnaie montant = new Monnaie(100, 0);</span>
+        ContratE.calculerRemboursementE(montant, 300);
+        assertEquals(6000, montant.getTotalCents());
+    }
+
+    @Test
+    public void testCalculerRemboursementECategory400() {
+<span class="nc" id="L55">        Monnaie montant = new Monnaie(100, 0);</span>
+        ContratE.calculerRemboursementE(montant, 400);
+        assertEquals(1500, montant.getTotalCents());
+    }
+
+    @Test
+    public void testCalculerRemboursementECategory500() {
+<span class="nc" id="L62">        Monnaie montant = new Monnaie(100, 0);</span>
+        ContratE.calculerRemboursementE(montant, 500);
+        assertEquals(2000, montant.getTotalCents());
+    }
+
+    @Test
+    public void testCalculerRemboursementECategory600() {
+<span class="nc" id="L69">        Monnaie montant = new Monnaie(100, 0);</span>
+        ContratE.calculerRemboursementE(montant, 600);
+        assertEquals(1500, montant.getTotalCents());
+    }
+
+    @Test
+    public void testCalculerRemboursementECategory700() {
+<span class="nc" id="L76">        Monnaie montant = new Monnaie(100, 0);</span>
+        ContratE.calculerRemboursementE(montant, 700);
+        assertEquals(2200, montant.getTotalCents());
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

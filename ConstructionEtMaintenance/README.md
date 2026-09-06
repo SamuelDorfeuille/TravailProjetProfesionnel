@@ -236,3 +236,5 @@ $ kover validate < examples/first_line.invalid
 not ok
 error: first line must be exactly 'begin scene'
 ```
+Le tout réalisé en collaboration de mon cours Construction et maintenance de logiciel de l'Université du Québec à Montréal
+

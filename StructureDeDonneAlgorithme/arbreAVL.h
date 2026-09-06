@@ -5,8 +5,11 @@
 #include <iostream>
 #include <cassert>
 
-//Samuel Dorfeuille DORS19109607
-//Alibay Patel Houssen ALIH68270406
+//Par :
+//Samuel Dorfeuille 
+
+//Coequipier:
+//Alibay Patel Houssen 
 template <class T>
 class ArbreAVL {
 public:

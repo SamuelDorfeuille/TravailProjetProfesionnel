@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>GestionnaireRemboursements.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Refunds</a> &gt; <a href="index.source.html" class="el_package">java.equipe18</a> &gt; <span class="el_source">GestionnaireRemboursements.java</span></div><h1>GestionnaireRemboursements.java</h1><pre class="source lang-java linenums"><span class="nc" id="L1">package equipe18;</span>
+
+import org.json.JSONArray;
+import org.json.JSONObject;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+
+public class GestionnaireRemboursements {
+
+    private static final Map&lt;Integer, Double&gt; MAX_REMBOURSEMENTS = new HashMap&lt;&gt;();
+
+    static {
+        MAX_REMBOURSEMENTS.put(100, 250.0);
+        MAX_REMBOURSEMENTS.put(175, 200.0);
+        MAX_REMBOURSEMENTS.put(200, 250.0);
+        MAX_REMBOURSEMENTS.put(500, 150.0);
+        MAX_REMBOURSEMENTS.put(600, 300.0);
+    }
+
+<span class="nc" id="L21">    public static JSONObject traiterRemboursements(ArrayList&lt;JSONObject&gt; reclamationJSONArray, String lettreContrat, String client, String mois) {</span>
+        JSONArray remboursementsArray = new JSONArray();
+        Map&lt;Integer, Double&gt; totalParSoin = new HashMap&lt;&gt;();
+        Map&lt;Integer, Double&gt; totalRembourseParSoin = new HashMap&lt;&gt;();
+
+        for (JSONObject reclamation : reclamationJSONArray) {
+            int soin = reclamation.getInt(&quot;soin&quot;);
+            String date = reclamation.getString(&quot;date&quot;);
+
+            Verifications.verifierDateReclamation(date,TraitementJson.obtenirMois() );
+            Verifications.verifierCategorie(soin);
+            CommandeStatistique.compteurSoinsDeclares(soin);
+
+            if (MAX_REMBOURSEMENTS.containsKey(soin)) {
+                double montantRembourse = calculerMontantRembourse(reclamation, lettreContrat, totalParSoin.getOrDefault(soin, 0.0), soin);
+                totalParSoin.put(soin, totalParSoin.getOrDefault(soin, 0.0) + montantRembourse);
+                ajouterRemboursement(remboursementsArray, reclamation, montantRembourse);
+
+                totalRembourseParSoin.put(soin, totalParSoin.get(soin));
+
+                if (totalParSoin.get(soin) &gt;= MAX_REMBOURSEMENTS.get(soin)) {
+
+                }
+            }
+        }
+
+        return construireResultat(client, mois, remboursementsArray, totalRembourseParSoin);
+    }
+
+<span class="nc" id="L50">    private static double calculerMontantRembourse(JSONObject reclamation, String lettreContrat, double totalActuel, int soin) {</span>
+        String montantAVerifier = reclamation.getString(&quot;montant&quot;);
+        Verifications.verifierMontantAvec$(montantAVerifier);
+        double montant = Double.parseDouble(reclamation.getString(&quot;montant&quot;).replace(&quot;$&quot;, &quot;&quot;));
+        Monnaie monnaieRemboursement = new Monnaie((int) montant, (int) ((montant - (int) montant) * 100));
+        Calculs.calculerRemboursement(lettreContrat, soin, monnaieRemboursement);
+
+        double montantActuel = monnaieRemboursement.getTotalCents() / 100.0;
+        if (totalActuel + montantActuel &gt; MAX_REMBOURSEMENTS.get(soin)) {
+            montantActuel = MAX_REMBOURSEMENTS.get(soin) - totalActuel;
+            monnaieRemboursement.setMontant((int) (montantActuel * 100));
+        }
+        return montantActuel;
+    }
+
+<span class="nc" id="L65">    private static void ajouterRemboursement(JSONArray remboursementsArray, JSONObject reclamation, double montantRembourse) {</span>
+        JSONObject rembourse = new JSONObject();
+        rembourse.put(&quot;soin&quot;, reclamation.getInt(&quot;soin&quot;));
+        rembourse.put(&quot;date&quot;, reclamation.getString(&quot;date&quot;));
+        rembourse.put(&quot;montant&quot;, String.format(&quot;%.2f$&quot;, montantRembourse));
+        remboursementsArray.put(rembourse);
+    }
+
+<span class="nc" id="L73">    private static JSONObject construireResultat(String client, String mois, JSONArray remboursementsArray, Map&lt;Integer, Double&gt; totalRembourseParSoin) {</span>
+        JSONObject resultat = new JSONObject();
+        resultat.put(&quot;dossier&quot;, client);
+        resultat.put(&quot;mois&quot;, mois);
+        resultat.put(&quot;remboursements&quot;, remboursementsArray);
+        resultat.put(&quot;total&quot;, String.format(&quot;%.2f$&quot;, totalRembourseParSoin.values().stream().mapToDouble(Double::doubleValue).sum()));
+        return resultat;
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

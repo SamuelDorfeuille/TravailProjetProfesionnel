@@ -1,8 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: equipe18test.ContratETest
 -------------------------------------------------------------------------------
-<<<<<<< HEAD
-Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.019 s -- in equipe18test.ContratETest
-=======
-Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.030 s -- in equipe18test.ContratETest
->>>>>>> AjustementDétail
+Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.018 s -- in equipe18test.ContratETest

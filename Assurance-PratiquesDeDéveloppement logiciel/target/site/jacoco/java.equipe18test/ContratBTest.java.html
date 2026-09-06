@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ContratBTest.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Refunds</a> &gt; <a href="index.source.html" class="el_package">java.equipe18test</a> &gt; <span class="el_source">ContratBTest.java</span></div><h1>ContratBTest.java</h1><pre class="source lang-java linenums"><span class="nc" id="L1">package equipe18test;</span>
+
+import org.junit.jupiter.api.Test;
+import equipe18.ContratB;
+import equipe18.Monnaie;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+public class ContratBTest {
+
+    @Test
+    public void testRemboursement50Max40() {
+<span class="nc" id="L13">        Monnaie montant = new Monnaie(100, 0); // $100.00</span>
+        ContratB.remboursement50Max40(montant);
+        assertEquals(4000, montant.getTotalCents()); // Expected $40.00
+    }
+
+    @Test
+    public void testRemboursement50Max50() {
+<span class="nc" id="L20">        Monnaie montant = new Monnaie(100, 0); // $100.00</span>
+        ContratB.remboursement50Max50(montant);
+        assertEquals(5000, montant.getTotalCents()); // Expected $50.00
+    }
+
+    @Test
+    public void testRemboursement100Max70() {
+<span class="nc" id="L27">        Monnaie montant = new Monnaie(100, 0); // $100.00</span>
+        ContratB.remboursement100Max70(montant);
+        assertEquals(7000, montant.getTotalCents()); // Expected $70.00
+    }
+
+    @Test
+    public void testCalculerRemboursementBCategory0() {
+<span class="nc" id="L34">        Monnaie montant = new Monnaie(100, 0); // $100.00</span>
+        ContratB.calculerRemboursementB(montant, 0);
+        assertEquals(4000, montant.getTotalCents()); // Expected $40.00
+    }
+
+    @Test
+    public void testCalculerRemboursementBCategory100() {
+<span class="nc" id="L41">        Monnaie montant = new Monnaie(100, 0); // $100.00</span>
+        ContratB.calculerRemboursementB(montant, 100);
+        assertEquals(5000, montant.getTotalCents()); // Expected $50.00
+    }
+
+    @Test
+    public void testCalculerRemboursementBCategory175() {
+<span class="nc" id="L48">        Monnaie montant = new Monnaie(100, 0); // $100.00</span>
+        ContratB.calculerRemboursementB(montant, 175);
+        assertEquals(7500, montant.getTotalCents()); // Expected $75.00
+    }
+
+    @Test
+    public void testCalculerRemboursementBCategory300() {
+<span class="nc" id="L55">        Monnaie montant = new Monnaie(100, 0); // $100.00</span>
+        ContratB.calculerRemboursementB(montant, 300);
+        assertEquals(5000, montant.getTotalCents()); // Expected $50.00
+    }
+
+    @Test
+    public void testCalculerRemboursementBCategory400() {
+<span class="nc" id="L62">        Monnaie montant = new Monnaie(100, 0); // $100.00</span>
+        ContratB.calculerRemboursementB(montant, 400);
+        assertEquals(0, montant.getTotalCents()); // Expected $0.00
+    }
+
+    @Test
+    public void testCalculerRemboursementBCategory600() {
+<span class="nc" id="L69">        Monnaie montant = new Monnaie(100, 0); // $100.00</span>
+        ContratB.calculerRemboursementB(montant, 600);
+        assertEquals(10000, montant.getTotalCents()); // Expected $100.00
+    }
+
+    @Test
+    public void testCalculerRemboursementBCategory700() {
+<span class="nc" id="L76">        Monnaie montant = new Monnaie(100, 0); // $100.00</span>
+        ContratB.calculerRemboursementB(montant, 700);
+        assertEquals(7000, montant.getTotalCents()); // Expected $70.00
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

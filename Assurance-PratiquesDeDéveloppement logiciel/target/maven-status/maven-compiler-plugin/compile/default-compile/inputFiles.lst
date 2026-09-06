@@ -1,51 +1,24 @@
-<<<<<<< HEAD
-C:\Users\Hashim\Documents\Cours\INF2050\TP3GIT\gitlab\equipe18-projet-inf2050-hiv2024\src\INF2050\java\equipe18\Verifications.java
-C:\Users\Hashim\Documents\Cours\INF2050\TP3GIT\gitlab\equipe18-projet-inf2050-hiv2024\src\INF2050\java\equipe18test\ContratETest.java
-C:\Users\Hashim\Documents\Cours\INF2050\TP3GIT\gitlab\equipe18-projet-inf2050-hiv2024\src\INF2050\java\equipe18test\VerificationsTest.java
-C:\Users\Hashim\Documents\Cours\INF2050\TP3GIT\gitlab\equipe18-projet-inf2050-hiv2024\src\INF2050\java\equipe18test\TraitementJsonTest.java
-C:\Users\Hashim\Documents\Cours\INF2050\TP3GIT\gitlab\equipe18-projet-inf2050-hiv2024\src\INF2050\java\equipe18\ContratB.java
-C:\Users\Hashim\Documents\Cours\INF2050\TP3GIT\gitlab\equipe18-projet-inf2050-hiv2024\src\INF2050\java\equipe18test\ContratATest.java
-C:\Users\Hashim\Documents\Cours\INF2050\TP3GIT\gitlab\equipe18-projet-inf2050-hiv2024\src\INF2050\java\equipe18test\ContratDTest.java
-C:\Users\Hashim\Documents\Cours\INF2050\TP3GIT\gitlab\equipe18-projet-inf2050-hiv2024\src\INF2050\java\equipe18\GestionnaireRemboursements.java
-C:\Users\Hashim\Documents\Cours\INF2050\TP3GIT\gitlab\equipe18-projet-inf2050-hiv2024\src\INF2050\java\equipe18test\CalculsTest.java
-C:\Users\Hashim\Documents\Cours\INF2050\TP3GIT\gitlab\equipe18-projet-inf2050-hiv2024\src\INF2050\java\equipe18\ContratE.java
-C:\Users\Hashim\Documents\Cours\INF2050\TP3GIT\gitlab\equipe18-projet-inf2050-hiv2024\src\INF2050\java\equipe18test\CommandeStatistiqueTest.java
-C:\Users\Hashim\Documents\Cours\INF2050\TP3GIT\gitlab\equipe18-projet-inf2050-hiv2024\src\INF2050\java\equipe18\Main.java
-C:\Users\Hashim\Documents\Cours\INF2050\TP3GIT\gitlab\equipe18-projet-inf2050-hiv2024\src\INF2050\java\equipe18\ContratC.java
-C:\Users\Hashim\Documents\Cours\INF2050\TP3GIT\gitlab\equipe18-projet-inf2050-hiv2024\src\INF2050\java\equipe18\Calculs.java
-C:\Users\Hashim\Documents\Cours\INF2050\TP3GIT\gitlab\equipe18-projet-inf2050-hiv2024\src\INF2050\java\equipe18test\ContratCTest.java
-C:\Users\Hashim\Documents\Cours\INF2050\TP3GIT\gitlab\equipe18-projet-inf2050-hiv2024\src\INF2050\java\equipe18test\MainTest.java
-C:\Users\Hashim\Documents\Cours\INF2050\TP3GIT\gitlab\equipe18-projet-inf2050-hiv2024\src\INF2050\java\equipe18test\MonnaieTest.java
-C:\Users\Hashim\Documents\Cours\INF2050\TP3GIT\gitlab\equipe18-projet-inf2050-hiv2024\src\INF2050\java\equipe18test\GestionnaireRemboursementsTest.java
-C:\Users\Hashim\Documents\Cours\INF2050\TP3GIT\gitlab\equipe18-projet-inf2050-hiv2024\src\INF2050\java\equipe18\CommandeStatistique.java
-C:\Users\Hashim\Documents\Cours\INF2050\TP3GIT\gitlab\equipe18-projet-inf2050-hiv2024\src\INF2050\java\equipe18\TraitementJson.java
-C:\Users\Hashim\Documents\Cours\INF2050\TP3GIT\gitlab\equipe18-projet-inf2050-hiv2024\src\INF2050\java\equipe18test\ContratBTest.java
-C:\Users\Hashim\Documents\Cours\INF2050\TP3GIT\gitlab\equipe18-projet-inf2050-hiv2024\src\INF2050\java\equipe18\ContratA.java
-C:\Users\Hashim\Documents\Cours\INF2050\TP3GIT\gitlab\equipe18-projet-inf2050-hiv2024\src\INF2050\java\equipe18\ContratD.java
-C:\Users\Hashim\Documents\Cours\INF2050\TP3GIT\gitlab\equipe18-projet-inf2050-hiv2024\src\INF2050\java\equipe18\Monnaie.java
-=======
-C:\Users\Hashim\Documents\Cours\INF2050\TP3GIT\Stati\equipe18-projet-inf2050-hiv2024\src\INF2050\java\equipe18test\ContratETest.java
-C:\Users\Hashim\Documents\Cours\INF2050\TP3GIT\Stati\equipe18-projet-inf2050-hiv2024\src\INF2050\java\equipe18test\ContratBTest.java
-C:\Users\Hashim\Documents\Cours\INF2050\TP3GIT\Stati\equipe18-projet-inf2050-hiv2024\src\INF2050\java\equipe18test\CalculsTest.java
-C:\Users\Hashim\Documents\Cours\INF2050\TP3GIT\Stati\equipe18-projet-inf2050-hiv2024\src\INF2050\java\equipe18test\MainTest.java
-C:\Users\Hashim\Documents\Cours\INF2050\TP3GIT\Stati\equipe18-projet-inf2050-hiv2024\src\INF2050\java\equipe18\ContratC.java
-C:\Users\Hashim\Documents\Cours\INF2050\TP3GIT\Stati\equipe18-projet-inf2050-hiv2024\src\INF2050\java\equipe18test\TraitementJsonTest.java
-C:\Users\Hashim\Documents\Cours\INF2050\TP3GIT\Stati\equipe18-projet-inf2050-hiv2024\src\INF2050\java\equipe18\Main.java
-C:\Users\Hashim\Documents\Cours\INF2050\TP3GIT\Stati\equipe18-projet-inf2050-hiv2024\src\INF2050\java\equipe18\GestionnaireRemboursements.java
-C:\Users\Hashim\Documents\Cours\INF2050\TP3GIT\Stati\equipe18-projet-inf2050-hiv2024\src\INF2050\java\equipe18test\CommandeStatistiqueTest.java
-C:\Users\Hashim\Documents\Cours\INF2050\TP3GIT\Stati\equipe18-projet-inf2050-hiv2024\src\INF2050\java\equipe18test\ContratATest.java
-C:\Users\Hashim\Documents\Cours\INF2050\TP3GIT\Stati\equipe18-projet-inf2050-hiv2024\src\INF2050\java\equipe18\Calculs.java
-C:\Users\Hashim\Documents\Cours\INF2050\TP3GIT\Stati\equipe18-projet-inf2050-hiv2024\src\INF2050\java\equipe18test\VerificationsTest.java
-C:\Users\Hashim\Documents\Cours\INF2050\TP3GIT\Stati\equipe18-projet-inf2050-hiv2024\src\INF2050\java\equipe18\Verifications.java
-C:\Users\Hashim\Documents\Cours\INF2050\TP3GIT\Stati\equipe18-projet-inf2050-hiv2024\src\INF2050\java\equipe18test\GestionnaireRemboursementsTest.java
-C:\Users\Hashim\Documents\Cours\INF2050\TP3GIT\Stati\equipe18-projet-inf2050-hiv2024\src\INF2050\java\equipe18test\MonnaieTest.java
-C:\Users\Hashim\Documents\Cours\INF2050\TP3GIT\Stati\equipe18-projet-inf2050-hiv2024\src\INF2050\java\equipe18\TraitementJson.java
-C:\Users\Hashim\Documents\Cours\INF2050\TP3GIT\Stati\equipe18-projet-inf2050-hiv2024\src\INF2050\java\equipe18\CommandeStatistique.java
-C:\Users\Hashim\Documents\Cours\INF2050\TP3GIT\Stati\equipe18-projet-inf2050-hiv2024\src\INF2050\java\equipe18\ContratA.java
-C:\Users\Hashim\Documents\Cours\INF2050\TP3GIT\Stati\equipe18-projet-inf2050-hiv2024\src\INF2050\java\equipe18\ContratE.java
-C:\Users\Hashim\Documents\Cours\INF2050\TP3GIT\Stati\equipe18-projet-inf2050-hiv2024\src\INF2050\java\equipe18test\ContratCTest.java
-C:\Users\Hashim\Documents\Cours\INF2050\TP3GIT\Stati\equipe18-projet-inf2050-hiv2024\src\INF2050\java\equipe18\ContratB.java
-C:\Users\Hashim\Documents\Cours\INF2050\TP3GIT\Stati\equipe18-projet-inf2050-hiv2024\src\INF2050\java\equipe18\ContratD.java
-C:\Users\Hashim\Documents\Cours\INF2050\TP3GIT\Stati\equipe18-projet-inf2050-hiv2024\src\INF2050\java\equipe18test\ContratDTest.java
-C:\Users\Hashim\Documents\Cours\INF2050\TP3GIT\Stati\equipe18-projet-inf2050-hiv2024\src\INF2050\java\equipe18\Monnaie.java
->>>>>>> AjustementDétail
+/Users/samuel/Desktop/TravailProfesionnelPortfolio/Assurance-PratiquesDeDéveloppement logiciel/src/INF2050/java/equipe18/Calculs.java
+/Users/samuel/Desktop/TravailProfesionnelPortfolio/Assurance-PratiquesDeDéveloppement logiciel/src/INF2050/java/equipe18/CommandeStatistique.java
+/Users/samuel/Desktop/TravailProfesionnelPortfolio/Assurance-PratiquesDeDéveloppement logiciel/src/INF2050/java/equipe18/ContratA.java
+/Users/samuel/Desktop/TravailProfesionnelPortfolio/Assurance-PratiquesDeDéveloppement logiciel/src/INF2050/java/equipe18/ContratB.java
+/Users/samuel/Desktop/TravailProfesionnelPortfolio/Assurance-PratiquesDeDéveloppement logiciel/src/INF2050/java/equipe18/ContratC.java
+/Users/samuel/Desktop/TravailProfesionnelPortfolio/Assurance-PratiquesDeDéveloppement logiciel/src/INF2050/java/equipe18/ContratD.java
+/Users/samuel/Desktop/TravailProfesionnelPortfolio/Assurance-PratiquesDeDéveloppement logiciel/src/INF2050/java/equipe18/ContratE.java
+/Users/samuel/Desktop/TravailProfesionnelPortfolio/Assurance-PratiquesDeDéveloppement logiciel/src/INF2050/java/equipe18/GestionnaireRemboursements.java
+/Users/samuel/Desktop/TravailProfesionnelPortfolio/Assurance-PratiquesDeDéveloppement logiciel/src/INF2050/java/equipe18/Main.java
+/Users/samuel/Desktop/TravailProfesionnelPortfolio/Assurance-PratiquesDeDéveloppement logiciel/src/INF2050/java/equipe18/Monnaie.java
+/Users/samuel/Desktop/TravailProfesionnelPortfolio/Assurance-PratiquesDeDéveloppement logiciel/src/INF2050/java/equipe18/TraitementJson.java
+/Users/samuel/Desktop/TravailProfesionnelPortfolio/Assurance-PratiquesDeDéveloppement logiciel/src/INF2050/java/equipe18/Verifications.java
+/Users/samuel/Desktop/TravailProfesionnelPortfolio/Assurance-PratiquesDeDéveloppement logiciel/src/INF2050/java/equipe18test/CalculsTest.java
+/Users/samuel/Desktop/TravailProfesionnelPortfolio/Assurance-PratiquesDeDéveloppement logiciel/src/INF2050/java/equipe18test/CommandeStatistiqueTest.java
+/Users/samuel/Desktop/TravailProfesionnelPortfolio/Assurance-PratiquesDeDéveloppement logiciel/src/INF2050/java/equipe18test/ContratATest.java
+/Users/samuel/Desktop/TravailProfesionnelPortfolio/Assurance-PratiquesDeDéveloppement logiciel/src/INF2050/java/equipe18test/ContratBTest.java
+/Users/samuel/Desktop/TravailProfesionnelPortfolio/Assurance-PratiquesDeDéveloppement logiciel/src/INF2050/java/equipe18test/ContratCTest.java
+/Users/samuel/Desktop/TravailProfesionnelPortfolio/Assurance-PratiquesDeDéveloppement logiciel/src/INF2050/java/equipe18test/ContratDTest.java
+/Users/samuel/Desktop/TravailProfesionnelPortfolio/Assurance-PratiquesDeDéveloppement logiciel/src/INF2050/java/equipe18test/ContratETest.java
+/Users/samuel/Desktop/TravailProfesionnelPortfolio/Assurance-PratiquesDeDéveloppement logiciel/src/INF2050/java/equipe18test/GestionnaireRemboursementsTest.java
+/Users/samuel/Desktop/TravailProfesionnelPortfolio/Assurance-PratiquesDeDéveloppement logiciel/src/INF2050/java/equipe18test/MainTest.java
+/Users/samuel/Desktop/TravailProfesionnelPortfolio/Assurance-PratiquesDeDéveloppement logiciel/src/INF2050/java/equipe18test/MonnaieTest.java
+/Users/samuel/Desktop/TravailProfesionnelPortfolio/Assurance-PratiquesDeDéveloppement logiciel/src/INF2050/java/equipe18test/TraitementJsonTest.java
+/Users/samuel/Desktop/TravailProfesionnelPortfolio/Assurance-PratiquesDeDéveloppement logiciel/src/INF2050/java/equipe18test/VerificationsTest.java

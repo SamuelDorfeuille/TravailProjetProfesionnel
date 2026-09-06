@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>GestionnaireRemboursementsTest.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Refunds</a> &gt; <a href="index.source.html" class="el_package">java.equipe18test</a> &gt; <span class="el_source">GestionnaireRemboursementsTest.java</span></div><h1>GestionnaireRemboursementsTest.java</h1><pre class="source lang-java linenums"><span class="nc" id="L1">package equipe18test;</span>
+
+
+import equipe18.GestionnaireRemboursements;
+import equipe18.TraitementJson;
+import org.json.JSONArray;
+import org.json.JSONObject;
+import org.junit.jupiter.api.Test;
+
+import java.util.ArrayList;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+
+public class GestionnaireRemboursementsTest {
+
+    @Test
+    public void testTraitementRemboursementsAucuneReclamation() {
+        ArrayList&lt;JSONObject&gt; reclamationJSONArray = new ArrayList&lt;&gt;();
+<span class="nc" id="L20">        JSONObject resultat = GestionnaireRemboursements.traiterRemboursements(reclamationJSONArray, &quot;A&quot;, &quot;123456&quot;, &quot;2023-01&quot;);</span>
+
+        assertNotNull(resultat);
+        assertEquals(&quot;123456&quot;, resultat.getString(&quot;dossier&quot;));
+        assertEquals(&quot;2023-01&quot;, resultat.getString(&quot;mois&quot;));
+        assertEquals(0, resultat.getJSONArray(&quot;remboursements&quot;).length());
+        assertEquals(&quot;0,00$&quot;, resultat.getString(&quot;total&quot;));
+    }
+
+    @Test
+    public void testTraitementRemboursements() {
+        // Création des données de test
+        ArrayList&lt;JSONObject&gt; reclamationJSONArray = new ArrayList&lt;&gt;();
+        JSONObject reclamation1 = new JSONObject();
+        reclamation1.put(&quot;soin&quot;, 175);
+        reclamation1.put(&quot;date&quot;, &quot;2023-01-11&quot;);
+        reclamation1.put(&quot;montant&quot;, &quot;65.00$&quot;);
+        reclamationJSONArray.add(reclamation1);
+
+        JSONObject reclamation2 = new JSONObject();
+        reclamation2.put(&quot;soin&quot;, 100);
+        reclamation2.put(&quot;date&quot;, &quot;2023-01-17&quot;);
+        reclamation2.put(&quot;montant&quot;, &quot;45.50$&quot;);
+        reclamationJSONArray.add(reclamation2);
+
+        // Appel de la méthode à tester
+<span class="nc" id="L46">        TraitementJson traitementJson = new TraitementJson(&quot;src/INF2050/resources/Assurance.json&quot;, &quot;src/INF2050/resources/Output.json&quot;);</span>
+        traitementJson.load();
+
+        JSONObject resultat = GestionnaireRemboursements.traiterRemboursements(reclamationJSONArray, &quot;A&quot;, &quot;123456&quot;, &quot;2023-01&quot;);
+
+        // Vérification des résultats
+        assertNotNull(resultat);
+        assertEquals(&quot;123456&quot;, resultat.getString(&quot;dossier&quot;));
+        assertEquals(&quot;2023-01&quot;, resultat.getString(&quot;mois&quot;));
+        JSONArray remboursements = resultat.getJSONArray(&quot;remboursements&quot;);
+        assertEquals(2, remboursements.length());
+
+        // Vérification du total des remboursements
+        double totalRemboursements = 0.0;
+        for (int i = 0; i &lt; remboursements.length(); i++) {
+            JSONObject remboursement = remboursements.getJSONObject(i);
+            String montant = remboursement.getString(&quot;montant&quot;).replace(&quot;$&quot;, &quot;&quot;).replace(&quot;,&quot;, &quot;.&quot;);
+            totalRemboursements += Double.parseDouble(montant);
+        }
+        assertEquals(&quot;48,42$&quot;, String.format(&quot;%.2f$&quot;, totalRemboursements));
+
+        }
+    }
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

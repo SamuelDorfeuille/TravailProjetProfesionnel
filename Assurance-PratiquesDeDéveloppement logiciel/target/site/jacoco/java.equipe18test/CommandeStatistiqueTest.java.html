@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CommandeStatistiqueTest.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Refunds</a> &gt; <a href="index.source.html" class="el_package">java.equipe18test</a> &gt; <span class="el_source">CommandeStatistiqueTest.java</span></div><h1>CommandeStatistiqueTest.java</h1><pre class="source lang-java linenums"><span class="nc" id="L1">package equipe18test;</span>
+
+import equipe18.CommandeStatistique;
+import org.json.JSONArray;
+import org.json.JSONObject;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import java.io.IOException;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+class CommandeStatistiqueTest {
+
+    @BeforeEach
+    void setUp() {
+<span class="nc" id="L17">        CommandeStatistique.reinitialiserStatistiques();</span>
+    }
+
+
+    @Test
+    void testLireStatistiquesExistantes() {
+        JSONObject json = null;
+        try {
+<span class="nc" id="L25">            json = CommandeStatistique.lireStatistiquesExistantes();</span>
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        assertNotNull(json);
+        assertTrue(json.has(&quot;Nombre de réclamation valide traitées&quot;));
+        assertTrue(json.has(&quot;Nombre de réclamation rejetées&quot;));
+        assertTrue(json.has(&quot;Nombre de soins déclarés&quot;));
+    }
+
+    @Test
+    void testReinitialiserDonnees() {
+        JSONObject json = new JSONObject();
+        json.put(&quot;Nombre de réclamation valide traitées&quot;, &quot;10&quot;);
+        json.put(&quot;Nombre de réclamation rejetées&quot;, &quot;5&quot;);
+        JSONArray soinsArray = new JSONArray();
+        JSONObject soin1 = new JSONObject();
+        soin1.put(&quot;Type&quot;, &quot;Consultation&quot;);
+        soin1.put(&quot;Nombre déclaré&quot;, &quot;3&quot;);
+        JSONObject soin2 = new JSONObject();
+        soin2.put(&quot;Type&quot;, &quot;Pharmacie&quot;);
+        soin2.put(&quot;Nombre déclaré&quot;, &quot;2&quot;);
+        soinsArray.put(soin1);
+        soinsArray.put(soin2);
+        json.put(&quot;Nombre de soins déclarés&quot;, soinsArray);
+
+<span class="nc" id="L51">        CommandeStatistique.reinitialiserDonnees(json);</span>
+
+        assertEquals(&quot;0&quot;, json.getString(&quot;Nombre de réclamation valide traitées&quot;));
+        assertEquals(&quot;0&quot;, json.getString(&quot;Nombre de réclamation rejetées&quot;));
+        JSONArray newSoinsArray = json.getJSONArray(&quot;Nombre de soins déclarés&quot;);
+        for (int i = 0; i &lt; newSoinsArray.length(); i++) {
+            JSONObject soin = newSoinsArray.getJSONObject(i);
+            assertEquals(&quot;0&quot;, soin.getString(&quot;Nombre déclaré&quot;));
+        }
+    }
+
+    @Test
+    public void testCompteurSoinsDeclares() throws IOException {
+        // Ajoute un nouveau type de soin
+<span class="nc" id="L65">        CommandeStatistique.compteurSoinsDeclares(200);</span>
+
+        // Vérifie si le nouveau type de soin a été ajouté avec succès
+        JSONObject result = CommandeStatistique.lireStatistiquesExistantes();
+        JSONArray resultSoins = result.getJSONArray(&quot;Nombre de soins déclarés&quot;);
+        boolean newTypeFound = false;
+        for (int i = 0; i &lt; resultSoins.length(); i++) {
+            JSONObject soin = resultSoins.getJSONObject(i);
+            if (soin.getInt(&quot;soin&quot;) == 200) {
+                assertEquals(1, soin.getInt(&quot;Nombre déclaré&quot;));
+                newTypeFound = true;
+                break;
+            }
+        }
+        assertTrue(newTypeFound);
+    }
+
+    @Test
+    public void testAugmenterStatValide() throws IOException {
+        // Augmente le nombre de réclamations valides
+<span class="nc" id="L85">        CommandeStatistique.augmenterStatValide();</span>
+
+        // Vérifie si le nombre de réclamations valides a été augmenté avec succès
+        JSONObject result = CommandeStatistique.lireStatistiquesExistantes();
+        assertEquals(1, result.getInt(&quot;Nombre de réclamation valide traitées&quot;));
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

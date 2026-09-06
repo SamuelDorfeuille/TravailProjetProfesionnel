@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Monnaie.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Refunds</a> &gt; <a href="index.source.html" class="el_package">java.equipe18</a> &gt; <span class="el_source">Monnaie.java</span></div><h1>Monnaie.java</h1><pre class="source lang-java linenums"><span class="nc" id="L1">package equipe18;</span>
+
+public class Monnaie {
+
+    private int totalCents = 0;
+    public int dollars = 0;
+    public int cents = 0;
+
+
+
+   public Monnaie (int i) {
+
+   }
+
+    /**
+     * @param dollars
+     * @param cents
+     */
+    public Monnaie(int dollars, int cents) {
+        if (dollars &lt; 0 || cents &lt; 0 || cents &gt; 99) {
+            throw new IllegalArgumentException();
+        }
+        this.totalCents = dollars * 100 + cents;
+    }
+
+<span class="nc" id="L26">    public int getTotalCents () {</span>
+        return this.totalCents;
+    }
+
+<span class="nc" id="L30">    public int getDollars() {</span>
+        return dollars = this.totalCents / 100;
+    }
+
+<span class="nc" id="L34">    public int getCents() {</span>
+        return cents = this.totalCents % 100;
+    }
+
+<span class="nc" id="L38">    public void additioner (Monnaie autreMontant) {</span>
+        this.totalCents += autreMontant.totalCents;
+    }
+
+<span class="nc" id="L42">    public void pourcentage(int pourcentage) {</span>
+        this.totalCents = this.totalCents * pourcentage / 100;
+    }
+
+<span class="nc" id="L46">    public void setMontant(int montant){</span>
+        this.totalCents = montant;
+    }
+@Override
+<span class="nc" id="L50">    public String toString(){</span>
+        return this.getDollars() + &quot;.&quot; + getCents() + &quot;$&quot;;
+    }
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

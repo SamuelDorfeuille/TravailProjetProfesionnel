@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Main.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Refunds</a> &gt; <a href="index.source.html" class="el_package">java.equipe18</a> &gt; <span class="el_source">Main.java</span></div><h1>Main.java</h1><pre class="source lang-java linenums"><span class="nc" id="L1">package equipe18;</span>
+
+import org.json.JSONObject;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+
+public class Main {
+
+    public static void main(String[] args) throws IOException {
+
+        if (args.length == 1) {
+            if (args[0].equals(&quot;-S&quot;)) {
+<span class="nc" id="L15">                equipe18.CommandeStatistique.afficherStatistiques();</span>
+                System.exit(0);
+            } else if (args[0].equals(&quot;-SR&quot;)) {
+                equipe18.CommandeStatistique.reinitialiserStatistiques();
+                System.exit(0);
+            }
+        }
+        if (args.length != 2) {
+            throw new IllegalArgumentException(&quot;le nombre d'argument est incorrect&quot;);
+        }
+
+        File jsonFile = new File(&quot;src/INF2050/resources/Assurance.json&quot;);
+        equipe18.TraitementJson traitementOutputJson = new equipe18.TraitementJson(jsonFile.getAbsolutePath(), &quot;src/INF2050/resources/Output.json&quot;);
+        traitementOutputJson.load();
+
+        equipe18.Verifications.verifierContratClient(equipe18.TraitementJson.obtenirLettreContrat());
+        equipe18.Verifications.verifierNumeroClient(equipe18.TraitementJson.obtenirNumeroClient());
+
+        ArrayList&lt;JSONObject&gt; reclamationJSONArray = traitementOutputJson.getListRec();
+
+        JSONObject fichierSortie = equipe18.GestionnaireRemboursements.traiterRemboursements(reclamationJSONArray, equipe18.TraitementJson.obtenirLettreContrat(), equipe18.TraitementJson.obtenirNumeroClient(), equipe18.TraitementJson.obtenirMois());
+        equipe18.TraitementJson.save(fichierSortie);
+        CommandeStatistique.augmenterStatValide();
+
+
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

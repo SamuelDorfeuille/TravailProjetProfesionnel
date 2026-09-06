@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Verifications.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Refunds</a> &gt; <a href="index.source.html" class="el_package">java.equipe18</a> &gt; <span class="el_source">Verifications.java</span></div><h1>Verifications.java</h1><pre class="source lang-java linenums"><span class="nc" id="L1">package equipe18;</span>
+
+import org.json.JSONObject;
+
+import java.io.IOException;
+import java.util.Arrays;
+
+public class Verifications {
+    // Method to verify if the category number is within the defined values
+<span class="nc" id="L10">    public static boolean verifierCategorie(int cat) {</span>
+        if((Arrays.asList(0, 100, 150, 175, 200, 400, 500, 600, 700).contains(cat)) || (cat &lt; 400 &amp;&amp; cat &gt; 299)){
+            return true;
+        } else {
+            augmenterStatInvalide();
+            throw new IllegalArgumentException(MSG_ERR_DONNEES_INVALIDES_CATEGORIE);
+
+        }
+    }
+
+    // Method to verify the client contract
+<span class="nc" id="L21">    public static void verifierContratClient(String contratClient) throws IllegalArgumentException {</span>
+        if (!contratClient.matches(&quot;[ABCDE]&quot;)) {
+            augmenterStatInvalide();
+            throw new IllegalArgumentException(MSG_ERR_DONNEES_INVALIDES_LETTRE);
+        }
+    }
+
+    // Method to verify the claim date
+<span class="nc" id="L29">    public static void verifierDateReclamation(String anneeMoisJourDemandes, String anneeMoisReclamation) throws IllegalArgumentException {</span>
+        if (!anneeMoisJourDemandes.contains(anneeMoisReclamation)) {
+            augmenterStatInvalide();
+            throw new IllegalArgumentException(MSG_ERR_DONNEES_INVALIDES_DATE);
+        }
+    }
+
+    // Method to verify the amount with a dollar sign
+<span class="nc" id="L37">    public static void verifierMontantAvec$(String montant) throws IllegalArgumentException {</span>
+        if (!montant.endsWith(&quot;$&quot;)) {
+            augmenterStatInvalide();
+            throw new IllegalArgumentException(MSG_ERR_DONNEES_INVALIDES_MONTANT);
+        }
+    }
+
+    // Method to verify the client number
+<span class="nc" id="L45">    public static void verifierNumeroClient(String numeroClient) throws IllegalArgumentException {</span>
+        if (!(numeroClient.length() == 6 &amp;&amp; numeroClient.matches(&quot;[0-9]+&quot;))) {
+            augmenterStatInvalide();
+            throw new IllegalArgumentException(MSG_ERR_DONNEES_INVALIDES_NUMERO_CLIENT);
+        }
+    }
+
+    //method to increase the stats counter when there's an error message
+    public static void augmenterStatInvalide(){
+        try {
+<span class="nc" id="L55">            JSONObject statJson = equipe18.CommandeStatistique.lireStatistiquesExistantes();</span>
+            int statInvalide =  statJson.getInt(&quot;Nombre de réclamation rejetées&quot;);
+            statInvalide = statInvalide + 1;
+            statJson.put(&quot;Nombre de réclamation rejetées&quot;, statInvalide);
+            equipe18.CommandeStatistique.ecrireDansFichier(statJson);
+        } catch (IOException e) {
+            System.err.println(&quot;Unable to read the statistique.json file: &quot; + e.getMessage());
+            System.exit(1);
+        }
+    }
+
+
+    // Error messages
+    public static final String MSG_ERR_DONNEES_INVALIDES_LETTRE = &quot;La lettre entrée est invalide, car elle ne figure pas exactement dans les options.&quot;;
+    public static final String MSG_ERR_DONNEES_INVALIDES_DATE = &quot;La date entrée est invalide.&quot;;
+    public static final String MSG_ERR_DONNEES_INVALIDES_MONTANT = &quot;Le Montant ne peut être traité, car il est invalide.&quot;;
+    public static final String MSG_ERR_DONNEES_INVALIDES_NUMERO_CLIENT = &quot;Le numéro du client n'est pas valide.&quot;;
+    public static final String MSG_ERR_DONNEES_INVALIDES_CATEGORIE = &quot;La catégorie entrée n'est pas dans les options mentionnées.&quot;;
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ContratA.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Refunds</a> &gt; <a href="index.source.html" class="el_package">java.equipe18</a> &gt; <span class="el_source">ContratA.java</span></div><h1>ContratA.java</h1><pre class="source lang-java linenums"><span class="nc" id="L1">package equipe18;</span>
+
+public class ContratA {
+    static public int remboursement0 = 0;
+    static public int remboursement25 = 25;
+    static public int remboursement35 = 35;
+    static public int remboursement40 = 40;
+    static public int remboursement50 = 50;
+
+
+
+<span class="nc" id="L12">    static public void calculerRemboursementA(Monnaie montantRemboursable, double categorieSoins) {</span>
+        if (categorieSoins ==0|| categorieSoins ==200|| categorieSoins == 500){montantRemboursable.pourcentage(remboursement25);
+        }else if (categorieSoins == 100) {montantRemboursable.pourcentage(remboursement35);
+        }else if (categorieSoins == 175) {montantRemboursable.pourcentage(remboursement50);
+        }else if (categorieSoins&gt;299 &amp;&amp; categorieSoins&lt;400 || categorieSoins == 150|| categorieSoins ==400 || categorieSoins ==700){
+            montantRemboursable.pourcentage(remboursement0);
+        } else if (categorieSoins == 600) {
+            montantRemboursable.pourcentage(remboursement40);
+        }
+    }
+
+
+}
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

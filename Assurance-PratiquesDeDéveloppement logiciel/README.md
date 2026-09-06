@@ -1,6 +1,8 @@
 
 # README
-
+Projet ayant comme but de simuler un logiciel de traitement d'assurance 
+Dans le cadre d'un projet du cours développement et methodologie de logiciel à
+L'université du Québec à Montreal
 ## Technologies utilisées
 
 Voici les technologies utilisées pour notre projet :

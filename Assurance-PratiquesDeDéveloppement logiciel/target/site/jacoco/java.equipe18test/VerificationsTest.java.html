@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>VerificationsTest.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Refunds</a> &gt; <a href="index.source.html" class="el_package">java.equipe18test</a> &gt; <span class="el_source">VerificationsTest.java</span></div><h1>VerificationsTest.java</h1><pre class="source lang-java linenums"><span class="nc" id="L1">package equipe18test;</span>
+
+import equipe18.Verifications;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+class VerificationsTest {
+
+    @Test
+    void verifierCategorieValid() {
+<span class="nc" id="L11">        assertTrue(Verifications.verifierCategorie(100));</span>
+        assertTrue(Verifications.verifierCategorie(350));
+    }
+
+    @Test
+    void verifierCategorieInvalid() {
+<span class="nc" id="L17">        assertThrows(Exception.class, () -&gt; Verifications.verifierCategorie(800));</span>
+    }
+
+    @Test
+    void verifierContratClientValid() {
+<span class="nc" id="L22">        assertDoesNotThrow(() -&gt; Verifications.verifierContratClient(&quot;A&quot;));</span>
+    }
+
+    @Test
+    void verifierContratClientInvalid() {
+<span class="nc" id="L27">        assertThrows(Exception.class, () -&gt; Verifications.verifierContratClient(&quot;Z&quot;));</span>
+    }
+
+    @Test
+    void verifierDateReclamationValid() {
+<span class="nc" id="L32">        assertDoesNotThrow(() -&gt; Verifications.verifierDateReclamation(&quot;20240101&quot;, &quot;202401&quot;));</span>
+    }
+
+    @Test
+    void verifierDateReclamationInvalid() {
+<span class="nc" id="L37">        assertThrows(Exception.class, () -&gt; Verifications.verifierDateReclamation(&quot;20240101&quot;, &quot;202402&quot;));</span>
+    }
+
+    @Test
+    void verifierMontantAvec$Valid() {
+<span class="nc" id="L42">        assertDoesNotThrow(() -&gt; Verifications.verifierMontantAvec$(&quot;100$&quot;));</span>
+    }
+
+    @Test
+    void verifierMontantAvec$Invalid() {
+<span class="nc" id="L47">        assertThrows(Exception.class, () -&gt; Verifications.verifierMontantAvec$(&quot;100&quot;));</span>
+    }
+
+    @Test
+    void verifierNumeroClientValid() {
+<span class="nc" id="L52">        assertDoesNotThrow(() -&gt; Verifications.verifierNumeroClient(&quot;123456&quot;));</span>
+    }
+
+    @Test
+    void verifierNumeroClientInvalid() {
+<span class="nc" id="L57">        assertThrows(Exception.class, () -&gt; Verifications.verifierNumeroClient(&quot;12345&quot;));</span>
+        assertThrows(Exception.class, () -&gt; Verifications.verifierNumeroClient(&quot;abcdef&quot;));
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>
