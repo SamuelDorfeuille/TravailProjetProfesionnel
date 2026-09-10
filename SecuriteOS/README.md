@@ -103,30 +103,5 @@ make
 make test
 ```
 
-Il est bon de noter que les tests ne couvrent pas 100% de l'énoncé. C'est à vous de lire ce que les tests existants font et de faire les vérifications additionnelles nécessaires.
+Le tout réalisé en collaboration de mon cours Outils et pratiques de développement logiciel de l'Université du Québec à Montréal
 
-### Barème et critères de correction
-
-Le barème utilisé est le suivant
-
- - Les tests publics (ceux présents dans ce projet) comptent pour 60% de la note.
- - Les tests privés comptent pour 40% de la note. Ces tests portent sur des spécifications indiquées dans l'énoncé.
- - Seuls les tests qui passent sur le serveur java.labunix.uqam.ca seront considérés.
-
-Vous pouvez perdre jusqu'à 20% de votre note pour chacun des éléments suivants s'ils ont des défauts
-
- - La lisibilité de votre code (ex.: commentaires, nomenclature des variables, etc.)
- - La simplicité et la conception de votre code (ex.: code inutilement complexe, code fragile, etc.)
- - La gestion des erreurs
- - La gestion de la mémoire
- - La gestion des ressources
- - L'utilisation des bonnes pratiques de développement C (ex.: ne pas avoir de comportement indéterminé)
- - Le respect des consignes de l'énoncé.
-
-Votre programme doit utiliser les appels système demandés dans l'énoncé. Si votre programme utilise des librairies haut-niveau qui ne sont pas autorisées, vous pouvez perdre jusqu'à 100% de la note de ce TP.
-
-## Mentions supplémentaires importantes
-
-⚠️ Intégrité académique - Si vous travailler sur un dépôt git, le rendre public ou rendre public votre code ici ou ailleurs ; ou faire des MR contenant votre code vers ce dépôt principal (ou vers tout autre dépôt public) sera considéré comme du plagiat.
-
-⚠️ Si votre programme ne compile pas ou ne passe aucun test public, une note de 0 sera automatiquement attribuée, et cela indépendamment de la qualité de code source ou de la quantité de travail mise estimée. Il est ultimement de votre responsabilité de tester et valider votre programme.

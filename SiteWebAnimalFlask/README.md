@@ -32,3 +32,4 @@
 ```
    http://127.0.0.1:5000
 ```
+Le tout réalisé en collaboration de mon cours programmation Web de l'Université du Québec à Montréal

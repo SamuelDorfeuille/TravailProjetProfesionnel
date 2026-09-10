@@ -48,3 +48,6 @@ Pour exécuter le projet depuis IntelliJ, ajoutez \`Assurance.json Output.json\`
 Pour afficher le fichier \`Statistique.json\`, mettez en argument \`-S\` dans la configuration Main.
 
 Pour réinitialiser les statistiques, ajoutez \`-SR\` en argument dans la configuration Main.
+
+Le tout réalisé en collaboration de mon cours Outils et pratiques de développement logiciel de l'Université du Québec à Montréal
+
