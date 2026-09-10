@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <meta charset="utf-8">
+    <title>Résultats</title>
+</head>
+<body>
+    <h1>Résultats pour : "{{ query }}"</h1>
+
+    {% if results %}
+        <ul>
+        {% for animal in results %}
+            <li>
+                <strong>{{ animal.nom }}</strong> — {{ animal.description }}<br>
+                <a href="{{ url_for('animal_page', animal_id=animal.id) }}">Voir sa page</a>
+            </li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>Aucun animal trouvé.</p>
+    {% endif %}
+
+    <a href="{{ url_for('home') }}">Retour à l'accueil</a>
+</body>
+</html>

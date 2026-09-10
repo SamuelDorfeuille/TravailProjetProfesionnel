@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <meta charset="utf-8">
+    <title>Page animal</title>
+</head>
+<body>
+   <div class="container">
+        <header>
+            <h1>Voici la page de l'animal {{ animal.nom }} !</h1>
+        </header>
+
+        <section class="animal-details">
+            <div class="animal-card">
+                <h2>Informations sur {{ animal.nom }}</h2>
+                <p><strong>Nom :</strong> {{ animal.nom }}</p>
+                <p><strong>Espèce :</strong> {{ animal.espece }}</p>
+                <p><strong>Race :</strong> {{ animal.race }}</p>
+                <p><strong>Âge :</strong> {{ animal.age }}</p>
+                <p><strong>Description :</strong> {{ animal.description }}</p>
+                <p><strong class="address-label">Adresse complète :</strong> {{ animal.adresse }},
+                   {{ animal.ville }},
+                   {{ animal.cp }}</p>
+                <br>
+                <p><strong>Email du propriétaire :</strong>
+                <a href="mailto:{{ animal.courriel }}">{{ animal.courriel }}</a></p>
+            </div>
+        </section>
+
+        <a href="/">Retour à l'accueil</a>
+   </div>
+</body>
+</html>

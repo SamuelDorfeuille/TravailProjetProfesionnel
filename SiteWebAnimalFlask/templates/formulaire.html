@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Adoption d’un animal de compagnie</title>
+</head>
+<body>
+    <h1>Formulaire d’adoption</h1>
+
+    <form method="POST" action="{{ url_for('acceuil') }}">
+
+        <label for="nomAnimal">Quel est le nom de l'animal ?</label>
+        <input type="text" id="nomAnimal" name="nomAnimal" required>
+        <div id="messageErreurNom" ></div>
+        <br>
+
+        <label for="espece">Quelle est son espèce ?</label>
+        <input type="text" id="espece" name="espece" required>
+        <br>
+
+        <label for="race">Quelle est sa race ?</label>
+        <input type="text" id="race" name="race" required>
+        <br>
+
+        <label for="age">Quel est son âge ?</label>
+        <input type="number" id="age" name="age" required>
+        <div id="messageErreurNaissance" ></div>
+        <br>
+
+        <label for="description">Description de l'animal ?</label>
+        <input type="text" id="description" name="description" required>
+        <br>
+
+        <label for="courriel">Votre courriel :</label>
+        <input type="email" id="courriel" name="courriel" required>
+        <div id="messageErreurCourriel" ></div>
+        <br>
+
+        <label for="adresse">Votre adresse :</label>
+        <input type="text" id="adresse" name="adresse" required>
+        <div id="messageErreurAdresse" ></div>
+        <br>
+
+        <label for="ville">Votre ville :</label>
+        <input type="text" id="ville" name="ville" required>
+        <br>
+
+        <label for="cp">Votre code postal :</label>
+        <input type="text" id="cp" name="cp" required>
+        <div id="messageErreurCP" ></div>
+        <br>
+
+        <button type="submit">Soumettre la demande</button>
+        <div id="messageErreurVirgule"></div>
+
+    </form>
+
+
+    <a href="{{ url_for('home') }}">
+        <button type="button">Retour à l'accueil</button>
+    </a>
+
+    <script src="document.js"></script>
+</body>
+</html>

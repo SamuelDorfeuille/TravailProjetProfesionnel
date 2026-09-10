@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CommandeStatistique.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Refunds</a> &gt; <a href="index.source.html" class="el_package">java.equipe18</a> &gt; <span class="el_source">CommandeStatistique.java</span></div><h1>CommandeStatistique.java</h1><pre class="source lang-java linenums"><span class="nc" id="L1">package equipe18;</span>
+
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+public class CommandeStatistique {
+    public static String PATH_TO_FILE = &quot;src/INF2050/resources/Statistique.json&quot;;
+
+<span class="nc" id="L13">    public static void afficherStatistiques() {</span>
+        try {
+            String content = new String(Files.readAllBytes(Paths.get(PATH_TO_FILE)), StandardCharsets.UTF_8);
+            System.out.println(content);
+        } catch (IOException e) {
+            System.err.println(&quot;Unable to read the statistique.json file: &quot; + e.getMessage());
+            System.exit(1);
+        }
+    }
+
+<span class="nc" id="L23">    public static void reinitialiserStatistiques() {</span>
+        try {
+            JSONObject json = lireStatistiquesExistantes();
+            reinitialiserDonnees(json);
+            ecrireDansFichier(json);
+            afficherConfirmation();
+        } catch (IOException e) {
+            gererErreurIO(e);
+        }
+    }
+
+<span class="nc" id="L34">    public static JSONObject lireStatistiquesExistantes() throws IOException {</span>
+        String content = new String(Files.readAllBytes(Paths.get(PATH_TO_FILE)), StandardCharsets.UTF_8);
+        return new JSONObject(content);
+    }
+
+    public static void compteurSoinsDeclares(int typeDeSoin) {
+        try {
+<span class="nc" id="L41">            JSONObject statJson = equipe18.CommandeStatistique.lireStatistiquesExistantes();</span>
+            JSONArray nombreSoinsDeclares = statJson.getJSONArray(&quot;Nombre de soins déclarés&quot;);
+            boolean soinDeclare = false;
+            for (int i = 0; i &lt; nombreSoinsDeclares.length(); i++) {
+                JSONObject soin = nombreSoinsDeclares.getJSONObject(i);
+                if (soin.getInt(&quot;soin&quot;) == typeDeSoin) {
+                    int nombreDeclare = soin.getInt(&quot;Nombre déclaré&quot;) + 1;
+                    soin.put(&quot;Nombre déclaré&quot;, nombreDeclare);
+
+                    soinDeclare = true;
+                    break;
+                }
+            }
+            if (!soinDeclare) {
+                JSONObject nouveauSoinDeclare = new JSONObject();
+                nouveauSoinDeclare.put(&quot;soin&quot;, typeDeSoin);
+                nouveauSoinDeclare.put(&quot;Nombre déclaré&quot;, 1);
+                nombreSoinsDeclares.put(nouveauSoinDeclare);
+            }
+            equipe18.CommandeStatistique.ecrireDansFichier(statJson);
+        } catch (IOException e) {
+            System.err.println(&quot;Error reading/writing the statistique.json file: &quot; + e.getMessage());
+            System.exit(1);
+        }
+    }
+
+    public static void augmenterStatValide() throws IOException {
+<span class="nc" id="L68">        JSONObject statJson = equipe18.CommandeStatistique.lireStatistiquesExistantes();</span>
+        int statistiqueReclamationValide = statJson.getInt(&quot;Nombre de réclamation valide traitées&quot;);
+        statistiqueReclamationValide = statistiqueReclamationValide + 1;
+        statJson.put(&quot;Nombre de réclamation valide traitées&quot;, statistiqueReclamationValide);
+        equipe18.CommandeStatistique.ecrireDansFichier(statJson);
+
+    }
+
+
+
+<span class="nc" id="L78">    public static void reinitialiserDonnees(JSONObject json) {</span>
+        json.put(&quot;Nombre de réclamation valide traitées&quot;, &quot;0&quot;);
+        json.put(&quot;Nombre de réclamation rejetées&quot;, &quot;0&quot;);
+
+        JSONArray soinsArray = json.getJSONArray(&quot;Nombre de soins déclarés&quot;);
+        for (int i = 0; i &lt; soinsArray.length(); i++) {
+            JSONObject soin = soinsArray.getJSONObject(i);
+            soin.put(&quot;Nombre déclaré&quot;, &quot;0&quot;);  // Réinitialiser chaque soin à &quot;0&quot;
+        }
+    }
+
+
+<span class="nc" id="L90">    public static void ecrireDansFichier(JSONObject json) throws IOException {</span>
+        Files.write(Paths.get(PATH_TO_FILE), json.toString(4).getBytes(StandardCharsets.UTF_8));
+    }
+
+<span class="nc" id="L94">    private static void afficherConfirmation() {</span>
+        System.out.println(&quot;Les statistiques ont été réinitialisées.&quot;);
+    }
+
+<span class="nc" id="L98">    private static void gererErreurIO(IOException e) {</span>
+        System.err.println(&quot;Impossible de réinitialiser les statistiques : &quot; + e.getMessage());
+        System.exit(1);
+    }
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

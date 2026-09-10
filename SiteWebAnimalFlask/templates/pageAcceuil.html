@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <meta charset="utf-8">
+    <title>Adoption Page d'accueil</title>
+</head>
+<body>
+
+    <h1>Recherche</h1>
+    <form method="GET" action="{{ url_for('search_results') }}">
+        <input type="text" name="q" placeholder="Nom de l'animal...">
+        <button type="submit">Rechercher</button>
+    </form>
+
+    <ul>
+        {% for animal in animaux %}
+            <li>
+                <strong>{{ animal.nom }}</strong>
+                <br>
+                – {{ animal.courriel }}
+                <br>
+                <a href="{{ url_for('animal_page', animal_id=animal.id) }}">
+                    Voir sa page
+                </a>
+            </li>
+        {% else %}
+            <li>Aucun animal trouvé.</li>
+        {% endfor %}
+    </ul>
+   <br>
+   <form action="{{ url_for('acceuil') }}" method="get">
+    <button type="submit" class="btn-ajout-animal">Mettre un animal en adoption</button>
+</form>
+   
+   <img src="{{ url_for('static', filename='image.jpg') }}" alt="image site page Acceuil" class="reduced-image">
+    <!-- lien image: https://pixabay.com/photos/dog-adoption-desire-taiwan-3697190/-->
+
+</body>
+</html>

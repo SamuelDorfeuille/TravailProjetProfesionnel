@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>TraitementJson.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Refunds</a> &gt; <a href="index.source.html" class="el_package">java.equipe18</a> &gt; <span class="el_source">TraitementJson.java</span></div><h1>TraitementJson.java</h1><pre class="source lang-java linenums"><span class="nc" id="L1">package equipe18;</span>
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.apache.commons.io.IOUtils;
+
+import java.io.*;
+import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
+
+public class TraitementJson {
+    private final String inputFile;
+    private final String outputFile;
+    private static JSONObject jsonObj;
+
+    public TraitementJson(String inputFile, String outputFile) {
+        this.inputFile = inputFile;
+        this.outputFile = outputFile;
+        jsonObj = null;
+    }
+
+<span class="nc" id="L23">    public boolean load() {</span>
+        boolean result = false;
+        try (InputStream is = new FileInputStream(this.inputFile)) {
+            String stringJson = IOUtils.toString(is, StandardCharsets.UTF_8);
+            jsonObj = new JSONObject(stringJson);
+            result = true;
+        } catch (FileNotFoundException e) {
+            System.err.println(&quot;File not found: &quot; + e.getMessage());
+        } catch (JSONException e) {
+            System.err.println(&quot;Error parsing JSON: &quot; + e.getMessage());
+        } catch (IOException e) {
+            System.err.println(&quot;IO Exception: &quot; + e.getMessage());
+        }
+        return result;
+    }
+
+<span class="nc" id="L39">    public JSONObject getJsonObj() {</span>
+        return jsonObj;
+    }
+
+<span class="nc" id="L43">    public static String obtenirDossierClient() {</span>
+        return jsonObj.getString(&quot;dossier&quot;);
+    }
+
+<span class="nc" id="L47">    public static String obtenirLettreContrat() {</span>
+        return obtenirDossierClient().substring(0, 1);
+    }
+
+<span class="nc" id="L51">    public static String obtenirNumeroClient() {</span>
+        return obtenirDossierClient().substring(1);
+    }
+
+<span class="nc" id="L55">    public static String obtenirMois() {</span>
+        return jsonObj.getString(&quot;mois&quot;);
+    }
+
+<span class="nc" id="L59">    public ArrayList&lt;JSONObject&gt; getListRec() {</span>
+        ArrayList&lt;JSONObject&gt; liste = new ArrayList&lt;&gt;();
+        JSONArray collection = jsonObj.getJSONArray(&quot;reclamations&quot;);
+        for (int i = 0; i &lt; collection.length(); i++) {
+            liste.add(collection.getJSONObject(i));
+        }
+        return liste;
+    }
+<span class="nc" id="L67">    private static void ensureJsonObjInitialized() {</span>
+        if (jsonObj == null) {
+            throw new IllegalStateException(&quot;jsonObj is not initialized&quot;);
+        }
+    }
+
+<span class="nc" id="L73">    public static void save(JSONObject fichierASortir) throws IOException {</span>
+        try (FileWriter file = new FileWriter(&quot;src/INF2050/resources/Output.json&quot;)) {
+            file.write(fichierASortir.toString(2));
+        }
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

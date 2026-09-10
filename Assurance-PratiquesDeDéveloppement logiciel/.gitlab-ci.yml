@@ -1,0 +1,24 @@
+# Définition des étapes de la pipeline CI/CD
+image: maven:3.8.3-openjdk-17
+
+stages:
+    # Construction de l'application
+  - build  
+  # Exécution des tests
+  - equipe18test
+  # Déploiement de l'application 
+  - deploy 
+
+# Job de construction de l'application
+build-job:
+  stage: build
+  # Compilation du code source avec Maven
+  script:
+    - mvn compile  
+
+# Job d'exécution des tests et du linting
+lint-test-job:
+  stage: equipe18test
+  # Exécution des tests avec Maven
+  script:
+    - mvn test

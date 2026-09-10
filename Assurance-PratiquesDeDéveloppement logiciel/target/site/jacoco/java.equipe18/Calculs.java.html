@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Calculs.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Refunds</a> &gt; <a href="index.source.html" class="el_package">java.equipe18</a> &gt; <span class="el_source">Calculs.java</span></div><h1>Calculs.java</h1><pre class="source lang-java linenums"><span class="nc" id="L1">package equipe18;</span>
+
+public class Calculs {
+
+<span class="nc" id="L5">    static public void remboursementsDemandesA(double typeSoin, Monnaie montantDemande){</span>
+        ContratA.calculerRemboursementA(montantDemande,typeSoin);
+    }
+
+<span class="nc" id="L9">    static public void remboursementsDemandesB(double typeSoin, Monnaie montantDemande){</span>
+        ContratB.calculerRemboursementB(montantDemande,typeSoin);
+    }
+
+<span class="nc" id="L13">    static public void remboursementsDemandesC(double typeSoin, Monnaie montantDemande){</span>
+        ContratC.calculerRemboursementC(montantDemande, typeSoin);
+    }
+
+<span class="nc" id="L17">    static public void remboursementsDemandesD(double typeSoin, Monnaie montantDemande){</span>
+        ContratD.calculerRemboursementD(montantDemande,typeSoin);
+    }
+<span class="nc" id="L20">    static public void remboursementsDemandesE(double typeSoin, Monnaie montantDemande){</span>
+        ContratE.calculerRemboursementE(montantDemande,typeSoin);
+    }
+
+
+<span class="nc" id="L25">    public static void calculerRemboursement(String typeContrat,double typeSoin, Monnaie montantRemboursable){</span>
+        if(&quot;A&quot;.equals(typeContrat)){Calculs.remboursementsDemandesA(typeSoin,montantRemboursable);
+        }else if(&quot;B&quot;.equals(typeContrat)){Calculs.remboursementsDemandesB(typeSoin,montantRemboursable);
+        }else if(&quot;C&quot;.equals(typeContrat)){Calculs.remboursementsDemandesC(typeSoin,montantRemboursable);
+        }else if(&quot;D&quot;.equals(typeContrat)){Calculs.remboursementsDemandesD(typeSoin,montantRemboursable);
+        }else if(&quot;E&quot;.equals(typeContrat)){Calculs.remboursementsDemandesE(typeSoin,montantRemboursable);
+        }
+    }
+
+
+
+
+
+
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

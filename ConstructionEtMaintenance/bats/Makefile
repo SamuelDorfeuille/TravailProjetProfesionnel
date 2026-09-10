@@ -1,0 +1,21 @@
+.PHONY: count test
+
+test:
+	../bats-core/libexec/bats-core/bats test_kover.bats
+	../bats-core/bin/bats test_bounding_box.bats
+	../bats-core/bin/bats test_describe.bats
+	../bats-core/bin/bats test_help.bats
+	../bats-core/bin/bats test_memory.bats
+	../bats-core/bin/bats test_quality.bats
+	../bats-core/bin/bats test_summarize.bats
+	../bats-core/bin/bats test_validate.bats
+
+count:
+	../bats-core/bin/bats -c test_kover.bats
+	../bats-core/bin/bats -c test_bounding_box.bats
+	../bats-core/bin/bats -c test_describe.bats
+	../bats-core/bin/bats -c test_help.bats
+	../bats-core/bin/bats -c test_memory.bats
+	../bats-core/bin/bats -c test_quality.bats
+	bats-core/bin/bats -c test_summarize.bats
+	bats-core/bin/bats -c test_validate.bats
