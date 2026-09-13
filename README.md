@@ -7,6 +7,15 @@ Bienvenue sur mon portfolio. Vous trouverez ici une sélection de projets réali
 
 Projet portant sur les bonnes pratiques de développement logiciel, la conception et la qualité du code.
 
+2. Jeu vidéo — Concours Ubisoft
+
+Développement d’un jeu vidéo dans le cadre du concours Ubisoft.
+
+Le projet a été réalisé en équipe et avait pour objectif de créer un jeu vidéo inspiré de l’esthétique et de l’univers des années 80 et 90. Le jeu est jouable à l’aide d’une manette Xbox, offrant une expérience adaptée au gameplay sur console.
+
+
+[**📥 Télécharger mon jeu**](https://github.com/SamuelDorfeuille/TravailProjetProfesionnel/releases/tag/JeuPortfolio)
+
 ➡️ Voir le projet
 
 2. Construction et maintenance
